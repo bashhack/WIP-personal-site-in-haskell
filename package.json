@@ -1,0 +1,53 @@
+{
+  "name": "marc-laughton-personal-site",
+  "version": "1.0.0",
+  "description": "Marc Laughton's personal site",
+  "main": "_site/js/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c --watch",
+    "reload": "livereload '_site/'",
+    "watch": "npm-run-all --parallel reload dev",
+    "prod": "NODE_ENV=production npm-run-all build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Marc Laughton (bashhack)",
+  "license": "ISC",
+  "homepage": "marclaughton.com",
+  "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "cssnano": "^3.10.0",
+    "livereload": "^0.6.0",
+    "npm-run-all": "^4.0.2",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-simple-vars": "^3.0.0",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-postcss": "^0.2.0",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^3.2.2"
+  },
+  "dependencies": {
+    "debug": "^2.6.1"
+  },
+  "keywords": [
+    "Portfolio",
+    "Resume",
+    "Personal",
+    "Website",
+    "Hakyll",
+    "Blog",
+    "Haskell",
+    "Rollup",
+    "NPM"
+  ]
+}
