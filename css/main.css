@@ -8,6 +8,7 @@ html {
 
 body {
     margin: 0;
+    width: 100%;
 }
 
 article,
@@ -1070,8 +1071,8 @@ h6 {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -14rem;
-    width: 14rem;
+    left: -16rem;
+    width: 16rem;
     visibility: hidden;
     overflow-y: auto;
     font-family: 'Source Sans Pro', sans-serif;
@@ -1101,6 +1102,14 @@ h6 {
     margin-bottom: 0;
 }
 
+.changing-headline {
+    height: 150px;
+}
+
+#personal-description {
+    font-style: italic;
+}
+
 .sidebar-nav {
     border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
@@ -1121,7 +1130,7 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
     .sidebar-item {
-        padding: 1.5rem;
+        padding: 1.5rem 0 1.5rem 1.5rem;
     }
     .sidebar-nav-item {
         padding-left: 1.5rem;
@@ -1210,9 +1219,9 @@ a.sidebar-nav-item:focus {
 #sidebar-checkbox:checked~.sidebar,
 #sidebar-checkbox:checked~.wrap,
 #sidebar-checkbox:checked~.sidebar-toggle {
-    -webkit-transform: translateX(14rem);
-    -ms-transform: translateX(14rem);
-    transform: translateX(14rem);
+    -webkit-transform: translateX(16rem);
+    -ms-transform: translateX(16rem);
+    transform: translateX(16rem);
 }
 
 .page,
@@ -1323,9 +1332,9 @@ a.pagination-item:hover {
 .layout-reverse #sidebar-checkbox:checked~.sidebar,
 .layout-reverse #sidebar-checkbox:checked~.wrap,
 .layout-reverse #sidebar-checkbox:checked~.sidebar-toggle {
-    -webkit-transform: translateX(-14rem);
-    -ms-transform: translateX(-14rem);
-    transform: translateX(-14rem);
+    -webkit-transform: translateX(-16rem);
+    -ms-transform: translateX(-16rem);
+    transform: translateX(-16rem);
 }
 
 .theme-base-08 .sidebar,
@@ -1450,6 +1459,7 @@ a.pagination-item:hover {
     padding-top: 4px;
     padding-right: 8px;
     padding-left: 3px;
+    margin-left: -30px;
 }
 
 #about-content .curve {
@@ -1494,16 +1504,24 @@ td img {
 .cbp-item {}
 
 .skill-container {
-    padding: 0;
-    margin: 0 auto;
-    list-style: none;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
     justify-content: center;
+    /* You can set flex-wrap and flex-direction individually */
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* Or do it all in one line with flex flow */
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    /* tweak the where items line up on the row */
+    /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+    -webkit-align-content: flex-end;
+    align-content: flex-end;
 }
 
 .skill-item {
@@ -7291,7 +7309,7 @@ td img {
     display: inline;
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width: 600px) {
     .cbp-l-filters-list .cbp-filter-item {
         margin-right: 5px;
         border-radius: 6px;

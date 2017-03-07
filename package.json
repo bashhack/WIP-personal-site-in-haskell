@@ -19,6 +19,7 @@
   "license": "ISC",
   "homepage": "marclaughton.com",
   "devDependencies": {
+    "babel-plugin-ramda": "^1.1.6",
     "babel-preset-es2015-rollup": "^3.0.0",
     "cssnano": "^3.10.0",
     "livereload": "^0.6.0",
@@ -26,6 +27,7 @@
     "postcss-cssnext": "^2.9.0",
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
+    "ramda": "^0.23.0",
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^7.0.0",
@@ -37,7 +39,9 @@
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
-    "debug": "^2.6.1"
+    "babel-plugin-ramda": "^1.1.6",
+    "debug": "^2.6.1",
+    "ramda": "^0.23.0"
   },
   "keywords": [
     "Portfolio",

@@ -1,39 +1,57 @@
+// ============================================================================
+// Imports
+// ============================================================================
+
 // Import styles (automatically injected into <head>)
 import '../css/main.css';
 
 // Import modules
-import { sayHelloTo } from './modules/mod1';
-import addArray from './modules/mod2';
-
-// Import a logger for easier debugging
-import debug from 'debug';
-
-const log = debug('app:log');
-
-// The logger should only be enabled if we're not in production
-if (ENV !== 'production') {
-  // Enable the logger
-  debug.enable('*');
-  log('Logging is enabled!');
-
-  // Enable LiveReload
-  document.write(
-    '<script src="http://' + (location.host || 'localhost').split(':')[0] +
-    ':35729/livereload.js?snipver=1"></' + 'script>'
-  );
-} else {
-  debug.disable();
-}
-
-// Print results to page
-const printTarget = document.getElementsByClassName('debug__output')[0];
-
-const result1 = sayHelloTo('Marc');
-const result2 = addArray([1, 2, 3, 4]);
-
+import { printTarget } from './modules/logger';
+import { avoidConsoleErrors, doAppInit } from './modules/utils';
+import { cycleTitleText, openSidebarAtHomeRoute, toggleSidebar } from './modules/sidebar';
+import { constructSkillsList } from './modules/about';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Handle cross-browser console obj methods
+  avoidConsoleErrors();
+
   // Debug
-  printTarget.innerText += `sayHelloTo('Marc') => ${result1}\n\n`;
-  printTarget.innerText += `addArray([1, 2, 3, 4]) => ${result2}\n\n`;
+  printTarget.innerText += 'Debug Output:\n\n';
+
+  // DOM Selectors
+  const personalDescription = document.getElementById('personal-description');
+  const toggle = document.querySelector('.sidebar-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarCheckbox = document.getElementById('sidebar-checkbox');
+  const skillContainer = document.querySelector('.skill-container');
+
+  // Process pipelines
+  const sidebarSeq = () => {
+    cycleTitleText(personalDescription);
+    openSidebarAtHomeRoute(sidebarCheckbox);
+    toggleSidebar(toggle, sidebar, sidebarCheckbox);
+  };
+
+  const aboutSeq = () => {
+    constructSkillsList(skillContainer);
+  };
+
+  const APP = {
+    // application-wide code
+    common: {
+      init: () => sidebarSeq(),
+    },
+
+    // controller-wide code
+    about: {
+      init: () => aboutSeq(),
+    },
+  };
+
+  // Main
+  const main = () => {
+    doAppInit(APP);
+  };
+
+  main();
 });
